@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кафе "Смачно"</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Кафе "Смачно"</h1>
+
+    <h2>Меню:</h2>
+    <div class="menu-item" id="coffee">Кава - 50 грн</div>
+    <div class="menu-item" id="tea">Чай - 30 грн</div>
+    <div class="menu-item" id="cake">Торт - 70 грн</div>
+
+    <button id="orderBtn" class="order">Замовити</button>
+
+    <p id="orderStatus"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+Style:
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+}
+.menu-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.menu-item:hover {
+    background-color: #f9c74f;
+}
+.order {
+    margin-top: 20px;
+    background-color: #f3722c;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+.highlight {
+    border: 2px solid #43aa8b;
+}
+
+
+JS:
+const orderButton = document.getElementById('orderBtn');
+const orderStatus = document.getElementById('orderStatus');
+
+const menuItems = document.getElementsByClassName('menu-item');
+
+const coffeeItem = document.querySelector('#coffee');
+
+const paragraphs = document.getElementsByTagName('p');
+
+orderButton.addEventListener('click', function() {
+    orderStatus.textContent = "Ваше замовлення прийнято!";
+    orderStatus.style.color = "green";
+});
+
+for (let i = 0; i < menuItems.length; i++) {
+    menuItems[i].addEventListener('mouseover', function() {
+        menuItems[i].classList.add('highlight');
+    });
+    menuItems[i].addEventListener('mouseout', function() {
+        menuItems[i].classList.remove('highlight');
+    });
+}
+
+coffeeItem.addEventListener('click', function() {
+    coffeeItem.textContent = "Кава - 45 грн (знижка!)";
+});
+
+document.addEventListener('keydown', function(event) {
+    paragraphs[0].style.color = 'blue';
+});
+
