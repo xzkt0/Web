@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Language Layout Switcher",
+  "version": "1.2",
+  "description": "Changes mistyped text between language layouts",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "engukr.png",
+    "48": "engukr.png",
+    "128": "engukr.png"
+  },
+  "commands": {
+    "convert-text": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Convert mistyped text"
+    }
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
